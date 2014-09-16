@@ -1,0 +1,54 @@
+rails new myapp --database=mysql
+(aggiunta gemfile
+# serve per gestire login e users
+gem 'devise')
+(aggiunta di password del db nel database.yml)
+bundle install
+rails generate scaffold course name
+rails generate scaffold subject name
+rails generate scaffold student surname name course_id:integer awaited_Mon:time awaited_Tue:time awaited_Wed:time awaited_Thu:time awaited_Fri:time awaited_Sat:time awaited_Sun:time note
+rake db:migrate
+rails generate devise:install
+(in config/initializer/devise.rb: config.mailer_sender e config.authentication_keys)
+(in routes root 'students#index')
+(inserimento dei courses)
+(inserimento delle subjects)
+(corretto di students:
+_form.html: corso non in codice, tempi di defoult e ogni 5 minuti, note con text
+show e index: visualizzazione ora, corso non in codice, per fare questo ho dovuto aggiungere
+has_many e belongs_to nei model di stutent e course)
+rails generate controller home index
+(cambio la view di home e la route)
+rails generate controller presences index new edit show
+rails generate model presence student_id:integer date:date user_id:integer present:boolean subject_ids:integer note toilet:boolean
+(nella migration di presence tolgo subject_ids e aggiungo la generazione della tabella presences_subjects)
+rake db:migrate
+(correzione delle routes)
+(correzione delle views show, index, insert, _form, edit)
+(compilazione del controller presences)
+rails generate devise User
+(nella migration di user aggiunta di surname, name e administrator)
+rake db:migrate
+rails generate devise:views
+(nelle views di devise/registrations edit e new: metto i campi surname, name e administrator)
+(application controller i strong param per surname, name, administrator e il metodo controllo amministratore)
+(nei controller courses, students, subjects il before_action :authenticate_user! e administrator?, in presences solo che sia autenticato)
+(nella view application un po' di aggiunte)
+sudo reboot
+(nella cartella myapp) nohup rails server &
+(completo la correzione della view home index)
+inserire un po' di utenti
+(decommento nell'inserimento delle presenze il campo user_id)
+(validations nei model course, presence, student, subject)
+(tolto sign up dalle views application e log in)
+
+
+#per devise direbbe...
+- in config/environments/development.rb for example
+ config.action_mailer.default_url_options = { host: 'localhost', port: 3000 } 
+- Heroku with Rails 3.2 only, you may want to set:
+  config.assets.initialize_on_precompile = false
+- rails g devise:views
+- in app/views/layouts/application.html.erb
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>

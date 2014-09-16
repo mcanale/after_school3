@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  surname: MyString
+  course_id: 1
+  awaited_Mon: 2014-09-15 22:22:49
+  awaited_Tue: 2014-09-15 22:22:49
+  awaited_Wed: 2014-09-15 22:22:49
+  awaited_Thu: 2014-09-15 22:22:49
+  awaited_Fri: 2014-09-15 22:22:49
+  awaited_Sat: 2014-09-15 22:22:49
+  awaited_Sun: 2014-09-15 22:22:49
+  note: MyString
+
+two:
+  name: MyString
+  surname: MyString
+  course_id: 1
+  awaited_Mon: 2014-09-15 22:22:49
+  awaited_Tue: 2014-09-15 22:22:49
+  awaited_Wed: 2014-09-15 22:22:49
+  awaited_Thu: 2014-09-15 22:22:49
+  awaited_Fri: 2014-09-15 22:22:49
+  awaited_Sat: 2014-09-15 22:22:49
+  awaited_Sun: 2014-09-15 22:22:49
+  note: MyString

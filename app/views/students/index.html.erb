@@ -1,0 +1,45 @@
+<h1>Listing students</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Surname</th>
+      <th>Name</th>
+      <th>Course</th>
+      <th>Awaited mon</th>
+      <th>Awaited tue</th>
+      <th>Awaited wed</th>
+      <th>Awaited thu</th>
+      <th>Awaited fri</th>
+      <th>Awaited sat</th>
+      <th>Awaited sun</th>
+      <th>Note</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.surname %></td>
+        <td><%= student.name %></td>
+        <td><%= student.course.name %></td>
+        <td><%= student.awaited_Mon.strftime("%H:%M") %></td>
+        <td><%= student.awaited_Tue.strftime("%H:%M") %></td>
+        <td><%= student.awaited_Wed.strftime("%H:%M") %></td>
+        <td><%= student.awaited_Thu.strftime("%H:%M") %></td>
+        <td><%= student.awaited_Fri.strftime("%H:%M") %></td>
+        <td><%= student.awaited_Sat.strftime("%H:%M") %></td>
+        <td><%= student.awaited_Sun.strftime("%H:%M") %></td>
+        <td><%= student.note %></td>
+        <td><%= link_to 'Show', student %></td>
+        <td><%= link_to 'Edit', edit_student_path(student) %></td>
+        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Student', new_student_path %>

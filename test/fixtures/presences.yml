@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student_id: 1
+  date: 2014-09-16
+  user_id: 1
+  present: false
+  subject_ids: 1
+  note: MyString
+  toilet: false
+
+two:
+  student_id: 1
+  date: 2014-09-16
+  user_id: 1
+  present: false
+  subject_ids: 1
+  note: MyString
+  toilet: false

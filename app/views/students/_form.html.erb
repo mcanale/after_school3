@@ -1,0 +1,61 @@
+<%= form_for(@student) do |f| %>
+  <% if @student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+      <% @student.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :surname %><br>
+    <%= f.text_field :surname %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :course_id %><br>
+    <%= f.select :course_id, options_from_collection_for_select(Course.all, :id, :name, @student.course_id) %>
+  </div>
+  <div class="field">
+    <%= f.label :awaited_Mon %><br>
+    <%= f.time_select :awaited_Mon, minute_step: 5, default: {hour: '16', minute: '30'} %>
+  </div>
+  <div class="field">
+    <%= f.label :awaited_Tue %><br>
+    <%= f.time_select :awaited_Tue, minute_step: 5, default: {hour: '16', minute: '30'} %>
+  </div>
+  <div class="field">
+    <%= f.label :awaited_Wed %><br>
+    <%= f.time_select :awaited_Wed, minute_step: 5, default: {hour: '14', minute: '00'} %>
+  </div>
+  <div class="field">
+    <%= f.label :awaited_Thu %><br>
+    <%= f.time_select :awaited_Thu, minute_step: 5, default: {hour: '16', minute: '45'} %>
+  </div>
+  <div class="field">
+    <%= f.label :awaited_Fri %><br>
+    <%= f.time_select :awaited_Fri, minute_step: 5, default: {hour: '16', minute: '45'} %>
+  </div>
+  <div class="field">
+    <%= f.label :awaited_Sat %><br>
+    <%= f.time_select :awaited_Sat, minute_step: 5, default: {hour: '00', minute: '00'}  %>
+  </div>
+  <div class="field">
+    <%= f.label :awaited_Sun %><br>
+    <%= f.time_select :awaited_Sun, minute_step: 5, default: {hour: '00', minute: '00'}  %>
+  </div>
+  <div class="field">
+    <%= f.label :note %><br>
+    <%= f.text_area :note, rows: 5 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

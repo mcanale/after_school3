@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Surname:</strong>
+  <%= @student.surname %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @student.name %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @student.course.name %>
+</p>
+
+<p>
+  <strong>Awaited mon:</strong>
+  <%= @student.awaited_Mon.strftime("%H:%M") %>
+</p>
+
+<p>
+  <strong>Awaited tue:</strong>
+  <%= @student.awaited_Tue.strftime("%H:%M") %>
+</p>
+
+<p>
+  <strong>Awaited wed:</strong>
+  <%= @student.awaited_Wed.strftime("%H:%M") %>
+</p>
+
+<p>
+  <strong>Awaited thu:</strong>
+  <%= @student.awaited_Thu.strftime("%H:%M") %>
+</p>
+
+<p>
+  <strong>Awaited fri:</strong>
+  <%= @student.awaited_Fri.strftime("%H:%M") %>
+</p>
+
+<p>
+  <strong>Awaited sat:</strong>
+  <%= @student.awaited_Sat.strftime("%H:%M") %>
+</p>
+
+<p>
+  <strong>Awaited sun:</strong>
+  <%= @student.awaited_Sun.strftime("%H:%M") %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @student.note %>
+</p>
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>
